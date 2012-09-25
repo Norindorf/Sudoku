@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Field {
+//    RandomFieldFiller field = new RandomFieldFiller();
+//    int[][] gameField = field.randomField();
     /**
      * Забирает значение в ячейке
      * @param x
