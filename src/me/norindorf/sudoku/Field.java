@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Field {
-    private int[][] FieldOfValues = new int[9][9];
+    private int[][] fieldOfValues = new int[9][9];
 
     /**
      * Забирает значение в ячейке
@@ -17,7 +17,7 @@ public class Field {
         if (x > 8 || x < 0 || y > 8 || y < 0) {
             throw new IndexOutOfBoundsException("Wrong get coordinates!");
         }
-        return FieldOfValues[x][y];
+        return fieldOfValues[x][y];
     }
 
     /**
@@ -35,7 +35,7 @@ public class Field {
         } else if (value > 9 || value < 0) {
             throw new IllegalArgumentException("Wrong set value!");
         }
-        FieldOfValues[x][y] = value;
+        fieldOfValues[x][y] = value;
     }
 
     /**
@@ -113,13 +113,18 @@ public class Field {
 
     @Override
     public String toString() {
-        String fieldValuesString = "FieldOfValues contains: \n";
+        String fieldValuesString = "";
         int horizontal, vertical;
         for (horizontal = 0; horizontal < 9; horizontal++) {
             for (vertical = 0; vertical < 9; vertical++) {
-                fieldValuesString += FieldOfValues[horizontal][vertical] + " ";
+                if (vertical != 0){
+                    fieldValuesString += " ";
+                }
+                fieldValuesString += fieldOfValues[horizontal][vertical];
             }
-            fieldValuesString += "\n";
+            if (horizontal < 8){
+                fieldValuesString += "\n";
+            }
         }
         return fieldValuesString;
     }
