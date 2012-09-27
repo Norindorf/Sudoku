@@ -3,7 +3,7 @@ package me.norindorf.sudoku;
 import java.util.Random;
 
 public class RandomFieldFiller {
-    public void randomFieldGenerator() {
+    public Field randomFieldGenerator() {
         Field field = new Field();
 
         int horizontal, vertical;
@@ -12,10 +12,9 @@ public class RandomFieldFiller {
             for (vertical = 0; vertical < 9; vertical++) {
                 Random randomGenerator = new Random();
                 int ranNum = randomGenerator.nextInt(9);
-                field.setValue(horizontal,vertical,ranNum + 1);
-                System.out.print(field.getValue(horizontal, vertical) + " ");
+                field.setValue(horizontal, vertical, ranNum + 1);
             }
-            System.out.println();
         }
+        return field;
     }
 }

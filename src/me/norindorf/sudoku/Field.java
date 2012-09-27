@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Field {
-    private int[][] field = new int[9][9];
+    private int[][] FieldOfValues = new int[9][9];
+
     /**
      * Забирает значение в ячейке
      *
@@ -13,8 +14,10 @@ public class Field {
      * @throws IndexOutOfBoundsException если координаты вылазят за поле
      */
     public int getValue(int x, int y) throws IndexOutOfBoundsException {
-        if (x>8||x<0 || y>8||y<0) throw new IndexOutOfBoundsException("Wrong get coordinates!");
-        return field[x][y];
+        if (x > 8 || x < 0 || y > 8 || y < 0) {
+            throw new IndexOutOfBoundsException("Wrong get coordinates!");
+        }
+        return FieldOfValues[x][y];
     }
 
     /**
@@ -27,11 +30,12 @@ public class Field {
      * @throws IllegalArgumentException  если значение не приемлимо (0>val || 9<val)
      */
     public void setValue(int x, int y, int value) throws IndexOutOfBoundsException, IllegalArgumentException {
-        if (x>8 || x<0 || y>8 || y<0) throw new IndexOutOfBoundsException("Wrong set coordinates!");
-        else if (value>9 || value<1) throw new IllegalArgumentException("Wrong set value!");
-        else {
-            field[x][y] = value;
+        if (x > 8 || x < 0 || y > 8 || y < 0) {
+            throw new IndexOutOfBoundsException("Wrong set coordinates!");
+        } else if (value > 9 || value < 0) {
+            throw new IllegalArgumentException("Wrong set value!");
         }
+        FieldOfValues[x][y] = value;
     }
 
     /**
@@ -105,5 +109,17 @@ public class Field {
     public boolean checkSolved() {
         //TODO
         return false;
+    }
+
+    @Override
+    public String toString() {
+        int horizontal, vertical;
+        for (horizontal = 0; horizontal < 9; horizontal++) {
+            for (vertical = 0; vertical < 9; vertical++) {
+                System.out.print(FieldOfValues[horizontal][vertical] + " ");
+            }
+            System.out.println();
+        }
+        return null;
     }
 }
