@@ -113,13 +113,14 @@ public class Field {
 
     @Override
     public String toString() {
+        String fieldValuesString = "FieldOfValues contains: \n";
         int horizontal, vertical;
         for (horizontal = 0; horizontal < 9; horizontal++) {
             for (vertical = 0; vertical < 9; vertical++) {
-                System.out.print(FieldOfValues[horizontal][vertical] + " ");
+                fieldValuesString += FieldOfValues[horizontal][vertical] + " ";
             }
-            System.out.println();
+            fieldValuesString += "\n";
         }
-        return null;
+        return fieldValuesString;
     }
 }

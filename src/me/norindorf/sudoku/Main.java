@@ -4,6 +4,6 @@ public class Main {
     public static void main(String[] args) {
         RandomFieldFiller randomFieldFiller = new RandomFieldFiller();
         Field field = randomFieldFiller.randomFieldGenerator();
-        field.toString();
+        System.out.println(field.toString());
     }
 }
